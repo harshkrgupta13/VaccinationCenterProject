@@ -1,0 +1,43 @@
+<h2>List of Citizens</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name of Citizen</th>
+      <th>Vaccination Center ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let citizen of citizens">
+      <td>{{citizen.name}}</td>
+      <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
+          (click)="showCenter(citizen.vaccinationCenterId)">
+          {{citizen.vaccinationCenterId}}</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">
+                  Vaccination Center Id - {{citizen.vaccinationCenterId}}
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <ul style="color:green">
+                  <li>Center Name : {{vaccinationCenter.centerName}}</li>
+                  <li>Address : {{vaccinationCenter.centerAddress}}</li>
+                  <li>Availability : {{vaccinationCenter.availability}}</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

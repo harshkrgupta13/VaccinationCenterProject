@@ -1,0 +1,4 @@
+<div *ngIf="authService.loggedIn">
+  <p>Welcome Admin! Hope you are doing great.
+  <button routerLink="/homepage">Homepage</button>&nbsp;
+  <button (click)="logout()">Logout</button></p>

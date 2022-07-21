@@ -1,0 +1,39 @@
+<h6>Book Slot for Vaccination</h6>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+
+    <div class="col-lg-4 col-sm-12">
+
+      <div *ngIf="alert" class="alert alert-success" role="alert">
+        <strong>Slot has been booked successfully. <a href="/viewCitizensList">View</a></strong>
+      </div>
+
+      <form [formGroup]="bookVSlot" (ngSubmit)="book()">
+        <div class="form-group">
+          <label>Select Vaccination Center</label>
+          <select class="form-control" (change)="update($event)">
+            <option>Choose here</option>
+            <option *ngFor="let vaccinationCenter of vaccinationCenters" [value]="vaccinationCenter.id">
+              {{vaccinationCenter.centerName}} (Available-{{vaccinationCenter.availability}})</option>
+          </select>
+          <h6>You have selected vaccination center id -> {{selected}}</h6>
+        </div>
+        <div class="form-group">
+          <label>Enter Name</label>
+          <input type="text" class="form-control" name="name" placeholder="Please Provide Full Name"
+            formControlName="name" [(ngModel)]="citizen.name">
+        </div>
+        <!-- <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Agree to <a href="">Terms & Conditions</a>
+            </label>
+          </div>
+        </div> -->
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<h2>Add Vaccination Center</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+
+      <div *ngIf="alert" class="alert alert-success" role="alert">
+        <strong>Vaccination Center added successfully.</strong>&nbsp;
+        <a href="/viewVaccinationCenter">View Details</a>
+      </div>
+
+      <form [formGroup]="addVCenter" (ngSubmit)="add()">
+        <div class="form-group">
+          <label>Center Name</label>
+          <input type="text" class="form-control" name="centerName" placeholder="Enter Center Name"
+            formControlName="name" [(ngModel)]="vaccinationCenter.centerName" id="centerName">
+        </div>
+        <div class="form-group">
+          <label>Center Address</label>
+          <input type="text" class="form-control" name="centerAddress" placeholder="Provide Full Address Here"
+            formControlName="address" [(ngModel)]="vaccinationCenter.centerAddress" id="centerAddress">
+        </div>
+        <div class="form-group">
+          <label>Availability (in numbers)</label>
+          <input type="text" class="form-control" name="availability" placeholder="Provide the no of vaccine available"
+            formControlName="availability" [(ngModel)]="vaccinationCenter.availability" id="availability">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

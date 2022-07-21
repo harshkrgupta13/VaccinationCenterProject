@@ -1,0 +1,25 @@
+<h2>List of Vaccination Centers</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Center ID</th>
+      <th>Center Name </th>
+      <th>Center Address</th>
+      <th>Availability</th>
+      <th>Modifications</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vaccinationCenter of vaccinationCenters">
+      <td>{{vaccinationCenter.id}}</td>
+      <td>{{vaccinationCenter.centerName}}</td>
+      <td>{{vaccinationCenter.centerAddress}}</td>
+      <td>{{vaccinationCenter.availability}}</td>
+      <td><button type="button" class="btn btn-primary btn-sm" (click)="update(vaccinationCenter.id)">Update</button>
+      </td>
+      <td><button type="button" class="btn btn-primary btn-sm" (click)="delete(vaccinationCenter.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
